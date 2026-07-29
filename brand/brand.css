@@ -1,0 +1,114 @@
+/* ==========================================================================
+   MyPacerPro brand layer
+   Loaded after the Webflow bundle. Everything MyPacerPro-specific lives here
+   so the underlying layout CSS stays untouched and re-derivable.
+   ========================================================================== */
+
+/* --- Barlow (body / UI) --------------------------------------------------- */
+/* weight 400 is already wired into the bundle as "Font Sans"; add the rest */
+@font-face { font-family: "Font Sans"; font-style: normal; font-weight: 500;
+             font-display: swap; src: url(fonts/barlow-500.woff2) format("woff2"); }
+@font-face { font-family: "Font Sans"; font-style: normal; font-weight: 600;
+             font-display: swap; src: url(fonts/barlow-600.woff2) format("woff2"); }
+
+/* --- Barlow Condensed (display / labels) ---------------------------------- */
+@font-face { font-family: "MPP Condensed"; font-style: normal; font-weight: 600;
+             font-display: swap; src: url(fonts/barlowcondensed-600.woff2) format("woff2"); }
+@font-face { font-family: "MPP Condensed"; font-style: normal; font-weight: 700;
+             font-display: swap; src: url(fonts/barlowcondensed-700.woff2) format("woff2"); }
+@font-face { font-family: "MPP Condensed"; font-style: normal; font-weight: 800;
+             font-display: swap; src: url(fonts/barlowcondensed-800.woff2) format("woff2"); }
+@font-face { font-family: "MPP Condensed"; font-style: italic; font-weight: 800;
+             font-display: swap; src: url(fonts/barlowcondensed-800-italic.woff2) format("woff2"); }
+
+/* --- Tokens --------------------------------------------------------------- */
+:root {
+  --mpp-red:        #DC2626;
+  --mpp-red-deep:   #991B1B;
+  --mpp-gold:       #FBBF24;
+  --mpp-ink:        #0F0A0A;
+  --mpp-surface:    #241717;
+  --mpp-muted:      #9C9090;
+
+  --font-family:       "Font Sans", Barlow, Arial, sans-serif;
+  --font-family-mono:  "MPP Condensed", "Arial Narrow", Impact, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Display type
+   day one® set everything in one wide grotesk. MyPacerPro's identity is heavy
+   condensed, so the display tiers retarget to Barlow Condensed while body copy
+   stays in Barlow. Condensed is narrower per glyph, so the display and h1 steps
+   are nudged up to hold the same optical weight on the page.
+   -------------------------------------------------------------------------- */
+.u-display, .u-h1, .u-h2, .u-h3 {
+  font-family: "MPP Condensed", "Arial Narrow", Impact, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-tight-02, -.02em);
+}
+.u-display { font-size: calc(var(--font-size-display) * 1.12); }
+.u-h1      { font-size: calc(var(--font-size-h1) * 1.10); }
+
+.u-h4, .u-h5 {
+  font-family: "MPP Condensed", "Arial Narrow", Impact, sans-serif;
+  font-weight: 700;
+}
+
+/* Small tracked caps labels — START:, PRÓXIMA SALIDA, DISTANCIA: */
+.u-mono-small, .u-mono-large {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-loose-05, .05em);
+}
+
+/* --------------------------------------------------------------------------
+   Accent
+   The source design carried a single muted red. MyPacerPro runs red + gold, so
+   gold is introduced on the "next run" ticker and the stat figures where the
+   original had a second emphasis level.
+   -------------------------------------------------------------------------- */
+.u-mono-small.is-accent,
+.u-mono-large.is-accent,
+.mpp-gold { color: var(--mpp-gold); }
+
+.mpp-red { color: var(--mpp-red); }
+
+/* Buttons pick up the brand red rather than the inherited rose */
+.u-button-primary,
+.button.is-primary { background-color: var(--mpp-red); border-color: var(--mpp-red); }
+.u-button-primary:hover,
+.button.is-primary:hover { background-color: var(--mpp-red-deep); border-color: var(--mpp-red-deep); }
+
+/* --------------------------------------------------------------------------
+   Logo slots
+   The source wordmarks were fixed-ratio; the MyPacerPro wordmark is wider, so
+   the logo images are constrained by height and allowed to size naturally.
+   -------------------------------------------------------------------------- */
+.logo_svg, .footer_logo, .burger_logo_img, .pageloader_logo, .footer-dayone_svg {
+  width: auto;
+  height: 100%;
+  max-height: 2.2em;
+  object-fit: contain;
+}
+.h1-logo { width: 100%; height: auto; }
+
+/* Webflow staging badge — not part of this build */
+.w-webflow-badge { display: none !important; }
+
+/* --------------------------------------------------------------------------
+   Footer lockup
+   The source footer paired a "day one®" wordmark with a separate script "Run"
+   to build one lockup. The MyPacerPro wordmark is already complete, so the
+   second slot would just restate the name on top of itself.
+   -------------------------------------------------------------------------- */
+.footer-dayone-run_svg { display: none !important; }
+
+/* Sub-page hero marquee — inherits the display face, not body Barlow */
+.marquee__advanced__p,
+.run-hero_marquee .marquee-advanced__item {
+  font-family: "MPP Condensed", "Arial Narrow", Impact, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+}

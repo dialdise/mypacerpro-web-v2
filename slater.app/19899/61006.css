@@ -1,0 +1,711 @@
+/* ═══════════════════════════════════════════════════════════
+   LENIS SMOOTH SCROLL
+   ═══════════════════════════════════════════════════════════ */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.lenis.lenis-autoToggle {
+  transition-property: overflow;
+  transition-duration: 1ms;
+  transition-behavior: allow-discrete;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CUSTOM CURSOR
+   ═══════════════════════════════════════════════════════════ */
+
+/* Cursor "default" - Standard-Cursor überall */
+body,
+body *,
+body :is([data-cursor="default"], [data-cursor="default"] *) {
+  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73d9d6784288907d14c3_Custom%20Cursor%20Webflow%20(2).svg") 0 0, auto;
+}
+
+/* Cursor "text" - bei Texten und Inputs */
+body :is([data-cursor="text"], [data-cursor="text"] *),
+body :is(p, h1, h2, h3, h4, h5, h6, input[type="text"], textarea) {
+  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0cdf2ec6817e00caa0475c_text.svg") 9 19, text;
+}
+
+/* Cursor "pointer" - bei Links und Buttons */
+body :is([data-cursor="pointer"], [data-cursor="pointer"] *),
+body :is(a, a *, a p, button, button *, select, input[type="submit"], input[type="button"], input[type="radio"], input[type="checkbox"]) {
+  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73daecb99773cac5fc32_Custom%20Cursor%20Webflow%20(3).svg") 0 0, pointer;
+}
+
+/* Cursor "grab" */
+body :is([data-cursor="grab"], [data-cursor="grab"] *) {
+  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73d94b2538918a2dea6e_Custom%20Cursor%20Webflow%20(4).svg") 7 2, grab;
+}
+
+/* Cursor "grabbing" */
+body :is([data-cursor="grabbing"], [data-cursor="grabbing"] *) {
+  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73da5fa8715338e18fb2_Custom%20Cursor%20Webflow%20(5).svg") 7 2, grabbing;
+}
+
+.cursor_bg {
+  transform: translate(-50%, -50%);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FONT FALLBACKS
+   ═══════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: arial fallback;
+  src: local(Arial);
+  size-adjust: 103%;
+  ascent-override: 92%;
+  descent-override: normal;
+  line-gap-override: normal;
+  letter-spacing: -0.05em;
+  word-spacing: -0.09em;
+}
+
+@font-face {
+  font-family: menlo fallback;
+  src: local(menlo);
+  size-adjust: 97%;
+  ascent-override: 84%;
+  descent-override: 25%;
+  line-gap-override: 14%;
+  letter-spacing: 0.2em;
+  word-spacing: -0.2em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCALING SYSTEM (by Osmo Supply)
+   https://osmo.supply/
+   ═══════════════════════════════════════════════════════════ */
+
+/* Desktop */
+:root {
+  --size-unit: 16;
+  --size-container-ideal: 1440;
+  --size-container-min: 992px;
+  --size-container-max: 2440px;
+  --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+  --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+
+  --font-family: "Font Sans", arial fallback, -apple-system, blinkmacsystemfont, avenir next, avenir, segoe ui, helvetica neue, helvetica, cantarell, ubuntu, roboto, noto, arial, sans-serif;
+  --font-family-mono: "Font Mono", menlo fallback, menlo, consolas, monaco, liberation mono, lucida console, monospace;
+
+  --ease-opacity: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out-gentle: cubic-bezier(0.17, 1, 0.35, 0.96);
+
+  --grid-margin: 1.25em;
+  --grid-columns: 6;
+  --grid-gutter: 1.25em;
+  --grid-column-width: calc(((var(--vw, 1vw) * 100) - (2 * var(--grid-margin))) / var(--grid-columns) - (var(--grid-gutter) * (var(--grid-columns) - 1) / var(--grid-columns)));
+  --grid: repeat(var(--grid-columns), minmax(0, 1fr));
+}
+
+/* Desktop Large */
+@media (width >=991px) {
+  :root {
+    --grid-margin: 1.25em;
+    --grid-columns: 12;
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 991px) {
+  :root {
+    --size-container-ideal: 834;
+    --size-container-min: 768px;
+    --size-container-max: 991px;
+  }
+}
+
+/* Mobile Landscape */
+@media screen and (max-width: 767px) {
+  :root {
+    --size-container-ideal: 550;
+    --size-container-min: 480px;
+    --size-container-max: 767px;
+  }
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+  :root {
+    --size-container-ideal: 390;
+    --size-container-min: 320px;
+    --size-container-max: 479px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL BASE
+   ═══════════════════════════════════════════════════════════ */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: initial;
+  scrollbar-width: thin;
+}
+
+/* Cursor/pointer-events fix while loading */
+html:not(.is-ready.fonts-loaded) {
+  cursor: auto !important;
+  pointer-events: auto !important;
+}
+
+html:not(.is-ready.fonts-loaded).wf-editor-mode,
+html:not(.is-ready.fonts-loaded).wf-design-mode,
+html:not(.is-ready.fonts-loaded).site-scrollbar {
+  cursor: auto;
+  pointer-events: auto;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-size: var(--size-font);
+}
+
+::-moz-selection {
+  color: var(--color);
+  background: var(--color-gray-dark);
+}
+
+::selection {
+  color: var(--color);
+  background: var(--color-gray-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTAINERS
+   ═══════════════════════════════════════════════════════════ */
+
+.container {
+  max-width: var(--size-container);
+}
+
+.container.medium {
+  max-width: calc(var(--size-container) * 0.85);
+}
+
+.container.small {
+  max-width: calc(var(--size-container) * 0.7);
+}
+
+.scroll-container {
+  color: var(--color);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WEBFLOW EDITOR FIXES
+   ═══════════════════════════════════════════════════════════ */
+
+.wf-editor-mode .w-embed.w-script,
+.wf-design-mode .w-embed.w-script {
+  display: none;
+}
+
+.wf-editor-mode .wf-empty,
+.wf-design-mode .wf-empty {
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RICH TEXT
+   ═══════════════════════════════════════════════════════════ */
+
+.rich-text p {
+  color: color-mix(in hsl, var(--color), transparent 30%);
+}
+
+.rich-text p+p {
+  margin-top: 1.5em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTON COMPONENT
+   ═══════════════════════════════════════════════════════════ */
+
+.button {
+  --button-stroke-width: 48;
+  --button-color-focus: var(--color);
+  --button-ease-click: cubic-bezier(0.4, 0, 0.2, 1);
+  --button-ease-focus: cubic-bezier(0.32, 0.72, 0, 1);
+  transition: translate 0.15s var(--button-ease-click);
+}
+
+.button:is(:focus-visible)::after {
+  box-shadow: 0 0 0 0.125em var(--button-color-focus);
+}
+
+.button:active {
+  translate: 0 0.125em 0;
+}
+
+.button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: -0.375em;
+  z-index: 1;
+}
+
+.button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: -0.125em;
+  border-radius: 0.25em;
+  transition: box-shadow 0.2s var(--button-ease-focus);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.button[data-wf--button--variant="black"] {
+  --button-color-focus: var(--color-background);
+  color: var(--color);
+}
+
+.button[data-wf--button--variant="outline"] {
+  --button-color-focus: var(--color);
+  color: var(--color);
+}
+
+.button[data-wf--button--variant="black"] .button_bg {
+  background-color: var(--color-background);
+}
+
+.button[data-wf--button--variant="outline"] .button_bg {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-gray-dark);
+}
+
+.button[data-wf--button--variant="black"] .button_svg-object-border,
+.button[data-wf--button--variant="outline"] .button_svg-object-border {
+  border: 0;
+}
+
+/* Newsletter Variant */
+.button[data-wf--button--variant="newsletter"] {
+  --button-color-focus: var(--color-background);
+  color: var(--color);
+  position: absolute;
+  right: 0.3125em;
+}
+
+.button[data-wf--button--variant="newsletter"] .button_bg {
+  background-color: var(--color-background);
+}
+
+.button[data-wf--button--variant="newsletter"] .button_svg-object-border {
+  border: 0;
+}
+
+.button[data-wf--button--variant="newsletter"] .button_text.is-hover {
+  color: var(--color-background);
+}
+
+/* Dark Gradient Variant */
+.button[data-wf--button--variant="dark-gradient"] {
+  --button-color-focus: var(--color);
+  color: var(--color);
+  width: 100%;
+  height: 2.8125em;
+}
+
+.button[data-wf--button--variant="dark-gradient"] .button_bg {
+  background: linear-gradient(90deg, #101010 0%, #1A1A1A 100%);
+}
+
+.button[data-wf--button--variant="dark-gradient"] .button_svg-object-border {
+  border: 0;
+}
+
+.button[data-wf--button--variant="dark-gradient"] .button_text.is-hover {
+  color: var(--color-background);
+}
+
+.button_svg mask {
+  mask-type: alpha;
+}
+
+.button_svg path,
+.button_svg-overlay path {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(1.125);
+}
+
+.button[data-wf--button--variant="gradient"] .button_text.is-default {
+  background: linear-gradient(258deg, var(--color-accent-red-light) 13.25%, var(--color-accent-red-dark) 77.18%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.button[data-wf--button--variant="black"] .button_text.is-hover,
+.button[data-wf--button--variant="outline"] .button_text.is-hover {
+  color: var(--color-background);
+}
+
+.wf-editor-mode .button_text.is-hover,
+.wf-design-mode .button_text.is-hover {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TAG COMPONENT
+   ═══════════════════════════════════════════════════════════ */
+
+.tag[data-wf--tag--variant="gray"] {
+  background-color: var(--color-gray-dark);
+}
+
+.tag[data-wf--tag--variant="backdrop"] {
+  background-color: color-mix(in hsl, var(--color-background), transparent 95%);
+  backdrop-filter: blur(15px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ACCORDION COMPONENT
+   ═══════════════════════════════════════════════════════════ */
+
+.accordion_list::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  background-color: var(--color-gray-dark);
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.accordion_details::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+  bottom: 0;
+  background-color: var(--color-gray-dark);
+  z-index: 0;
+}
+
+.accordion_details.is-active .accordion_content-inner {
+  animation: accordion-fade-in 0.25s var(--ease-opacity) both;
+  animation-delay: 0.1s;
+}
+
+.accordion_icon {
+  overflow: visible !important;
+}
+
+.accordion_icon-vertical {
+  transform-box: fill-box;
+  transform-origin: center center;
+  transition: rotate 0.5s var(--ease-smooth);
+}
+
+.accordion_details.is-active .accordion_icon-vertical {
+  rotate: 90deg;
+}
+
+.accordion_icon-horizontal {
+  transform-box: fill-box;
+  transform-origin: right center;
+  transition: translate 0.45s var(--ease-smooth), scale 0.35s var(--ease-out-gentle);
+}
+
+.accordion_details.is-active .accordion_icon-horizontal {
+  translate: 50% 0 0;
+  scale: 0 1;
+}
+
+@keyframes accordion-fade-in {
+  0% {
+    opacity: 0;
+    translate: 0 -0.5em 0;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DRAW LINE (Random Underline SVG)
+   ═══════════════════════════════════════════════════════════ */
+
+[data-draw-line-box] svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: visible !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TOUCH DEVICE OVERRIDES
+   ═══════════════════════════════════════════════════════════ */
+
+@media (hover: none) and (pointer: coarse) {
+  .button_text.is-hover {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ARROW SLIDER
+   ═══════════════════════════════════════════════════════════ */
+
+/* Alle Bilder absolute übereinander stapeln */
+[data-arrow-slider="image"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+/* Heading-Mask: overflow hidden für vertikales Slide */
+[data-arrow-slider="heading-mask"] {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Headings absolut übereinander */
+[data-arrow-slider="heading"] {
+  will-change: transform;
+}
+
+[data-arrow-slider="heading"]:not([data-index="0"]) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Button-Mask: gleiches Prinzip */
+[data-arrow-slider="button-mask"] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-arrow-slider="button"] {
+  will-change: transform;
+}
+
+[data-arrow-slider="button"]:not([data-index="0"]) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RUNS ITEM HOVER GLOW
+   ═══════════════════════════════════════════════════════════ */
+
+.runs_cms_item svg[data-route-svg] {
+  transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.runs_cms_item:hover svg[data-route-svg] {
+  filter: drop-shadow(0 0 8px rgba(229, 80, 80, 1)) drop-shadow(0 0 24px rgba(229, 80, 80, 0.6));
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BURGER ICON (2 Striche → X)
+   ═══════════════════════════════════════════════════════════ */
+
+.nav_burger {
+  cursor: pointer;
+}
+
+.nav_burger_icon {
+  position: relative;
+}
+
+.nav_burger_line {
+  transform-origin: center center;
+  will-change: transform, top;
+}
+
+[data-burger-line="top"] {
+  top: 0;
+}
+
+[data-burger-line="bottom"] {
+  top: calc(100% - 2px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BURGER OVERLAY
+   ═══════════════════════════════════════════════════════════ */
+
+[data-burger] {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+body.burger-open [data-burger] {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Background */
+[data-burger-bg] {
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* Logo */
+.burger_logo {
+  opacity: 0;
+  filter: blur(20px);
+  will-change: filter, opacity;
+  transform: translateZ(0);
+}
+
+/* Links */
+[data-burger-link] {
+  overflow: hidden;
+  opacity: 0;
+  filter: blur(20px);
+  will-change: filter, opacity;
+  transform: translateZ(0);
+}
+
+.burger_item_text {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Footer */
+.burger_footer {
+  opacity: 0;
+  filter: blur(20px);
+  will-change: filter, opacity;
+  transform: translateZ(0);
+}
+
+/* Body-Lock wenn Menu offen */
+body.burger-open {
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SITE CREDIT POPUP
+   ═══════════════════════════════════════════════════════════ */
+
+[data-credit-trigger] {
+  cursor: pointer;
+}
+
+[data-credit-popup] {
+  opacity: 0;
+  filter: blur(20px);
+  pointer-events: none;
+  visibility: hidden;
+  will-change: filter, opacity;
+  transform: translateZ(0);
+}
+
+[data-credit-popup].is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PAGELOADER
+   ═══════════════════════════════════════════════════════════ */
+
+[data-pageloader] {
+  pointer-events: none;
+  visibility: visible;
+}
+
+[data-pageloader].is-hidden {
+  visibility: hidden;
+}
+
+[data-pageloader-text-1],
+[data-pageloader-text-2] {
+  opacity: 0;
+  filter: blur(20px);
+  will-change: filter, opacity;
+  transform: translateZ(0);
+}
+
+[data-pageloader-bg] {
+  will-change: opacity;
+}
+
+/* Body-Lock während Pageloader läuft */
+body.pageloader-active {
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO REVEAL — Initial-States (nur beim ersten Load aktiv)
+   ═══════════════════════════════════════════════════════════ */
+
+html.is-first-load [data-hero-headline],
+html.is-first-load [data-hero-nav],
+html.is-first-load [data-hero-credit],
+html.is-first-load [data-hero-nextrun] {
+  opacity: 0;
+}
+
+/* Run-Signatur initial unsichtbar bis Maske greift */
+html.is-first-load [data-hero-run] {
+  opacity: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
