@@ -33,7 +33,9 @@ Everything MyPacerPro-specific lives in `brand/` so the underlying layout CSS st
   retargeting, and the handful of layout corrections the rebrand needed. Each block says why.
 - **`brand/fonts/`** — Barlow + Barlow Condensed, latin subset, self-hosted (103 KB total).
 - **`brand/logo-*.svg`, `brand/mark-white.svg`** — the wordmark, white / dark / red.
-- **`brand/photos/`** — 6 Instagram photos + 9 Unsplash.
+- **`brand/photos/`** — 10 photos from the *TEST INTERNO - MY PACERPRO 2026* shoot (`mpp-*`),
+  2 Instagram club shots (`ig-*`), and 3 stock (`u-*`) for the disciplines the shoot did not
+  cover. Unreferenced files are pruned, so everything here is in use.
 - **`brand/favicon.svg`**
 
 ### Colour
@@ -81,10 +83,15 @@ font as a data URI, which is why they are ~40 KB each.
 - **The hero is a still, not video.** The source used a full-bleed autoplay clip and MyPacerPro has
   no footage in hand. `u-hero.jpg` stands in as the poster. A 10–15s loop would restore the
   original effect and is the single highest-impact upgrade.
-- **Only 6 Instagram photos.** Logged-out Instagram caps the grid at 6, and all six are wide group
-  shots — no action, cycling or swimming. They carry the community sections well; everything else
-  is Unsplash. Dropping a folder of real photos in `brand/photos/` and re-pointing the `<img>` srcs
-  is the fix.
+- **No cycling, swimming or trail photography.** The *TEST INTERNO* shoot was a running test, so
+  those three discipline pages still lead with stock (`u-cycling`, `u-swimming`, `u-trail`).
+  Everything running-related now uses real team photos.
+- **The team photography is portrait** (2400×3200, shot for social). It fills portrait card slots
+  natively; in the full-bleed landscape hero `cover` crops it and `brand.css` pulls the focal band
+  to 32% so faces stay in frame. Landscape frames would sit better in the hero.
+- **Other brands are visible in the shoot** — Nike, adidas kit on athletes, which reads as normal
+  club gear rather than endorsement. The MY PACERPRO yellow shirt is visible in the hero and
+  several cards. Worth a glance before publishing if that matters to you.
 - **Session dates, times and meeting points are placeholders.** `Costa Verde`, `Malecón de
   Miraflores`, `Ciclovía Costanera` are plausible Lima locations, not confirmed ones, and the dates
   are inherited from the source. Verify before publishing.

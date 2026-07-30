@@ -112,3 +112,38 @@
   text-transform: uppercase;
   letter-spacing: -.02em;
 }
+
+/* --------------------------------------------------------------------------
+   Hero framing
+   The team photography is portrait (2400x3200) because it was shot for social.
+   In a full-bleed landscape hero `cover` crops top and bottom, so the focal
+   band is pulled up to keep faces and torsos in frame instead of centring on
+   the sky.
+   -------------------------------------------------------------------------- */
+.background-video,
+.background-video video,
+.hero_background img,
+.hero_background { background-position: center 32% !important; object-position: center 32%; }
+
+/* --------------------------------------------------------------------------
+   Nav gutter — Instagram link clipping
+   `.nav_grid` is a grid, and the social slot sits in its last column. The
+   source design ended that row with a short icon which fitted its track;
+   "@mypacerpro" is a long text label and overflowed the track by ~12px,
+   spilling into the page gutter and leaving only ~8px before the viewport
+   edge — so a scrollbar or any zoom clipped it.
+
+   Aligning the item to the end of its own track keeps it inside the grid, and
+   the extra inline margin restores a real gutter at every width.
+   -------------------------------------------------------------------------- */
+.nav_grid .nav-link_wrapper.social-media {
+  justify-self: end;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.nav .nav_grid { padding-inline: var(--grid-margin, 1.25em); box-sizing: border-box; }
+
+/* The footer carries the same @mypacerpro label, but there it sits flush with
+   the standard container gutter like every other section rather than
+   overflowing its track — so it only needs protecting from a mid-word wrap. */
+.footer_nav .nav-link_wrapper { white-space: nowrap; }
