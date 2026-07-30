@@ -35,7 +35,7 @@ html.lenis body {
 body,
 body *,
 body :is([data-cursor="default"], [data-cursor="default"] *) {
-  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73d9d6784288907d14c3_Custom%20Cursor%20Webflow%20(2).svg") 0 0, auto;
+  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73d9d6784288907d14c3_Custom-Cursor-Webflow-2.svg") 0 0, auto;
 }
 
 /* Cursor "text" - bei Texten und Inputs */
@@ -47,17 +47,17 @@ body :is(p, h1, h2, h3, h4, h5, h6, input[type="text"], textarea) {
 /* Cursor "pointer" - bei Links und Buttons */
 body :is([data-cursor="pointer"], [data-cursor="pointer"] *),
 body :is(a, a *, a p, button, button *, select, input[type="submit"], input[type="button"], input[type="radio"], input[type="checkbox"]) {
-  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73daecb99773cac5fc32_Custom%20Cursor%20Webflow%20(3).svg") 0 0, pointer;
+  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73daecb99773cac5fc32_Custom-Cursor-Webflow-3.svg") 0 0, pointer;
 }
 
 /* Cursor "grab" */
 body :is([data-cursor="grab"], [data-cursor="grab"] *) {
-  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73d94b2538918a2dea6e_Custom%20Cursor%20Webflow%20(4).svg") 7 2, grab;
+  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73d94b2538918a2dea6e_Custom-Cursor-Webflow-4.svg") 7 2, grab;
 }
 
 /* Cursor "grabbing" */
 body :is([data-cursor="grabbing"], [data-cursor="grabbing"] *) {
-  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73da5fa8715338e18fb2_Custom%20Cursor%20Webflow%20(5).svg") 7 2, grabbing;
+  cursor: url("../../cdn.prod.website-files.com/6a01f769fb0d9bd286987755/6a0d73da5fa8715338e18fb2_Custom-Cursor-Webflow-5.svg") 7 2, grabbing;
 }
 
 .cursor_bg {
