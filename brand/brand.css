@@ -147,3 +147,121 @@
    the standard container gutter like every other section rather than
    overflowing its track — so it only needs protecting from a mid-word wrap. */
 .footer_nav .nav-link_wrapper { white-space: nowrap; }
+
+/* --------------------------------------------------------------------------
+   Hero scrim
+   The source hero was dark footage, so white type sat on it comfortably. The
+   MyPacerPro shoot was taken under Lima's flat overcast sky, which puts white
+   text on a near-white background — measured at 1.08:1 behind the nav links,
+   effectively invisible.
+
+   A scrim between the photo and the text fixes it without touching the file.
+   It is weighted to where the type actually sits: heaviest at the top behind
+   the nav and wordmark, easing through the middle so the runners keep their
+   contrast, and rising again at the foot behind the session ticker.
+   -------------------------------------------------------------------------- */
+.hero_background { position: absolute; }
+.hero_background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 10, 10, .70) 0%,
+    rgba(15, 10, 10, .46) 16%,
+    rgba(15, 10, 10, .33) 42%,
+    rgba(15, 10, 10, .48) 74%,
+    rgba(15, 10, 10, .60) 100%
+  );
+}
+
+/* --------------------------------------------------------------------------
+   Calendar backdrop scrim
+   Same problem as the hero: white copy sits over a photo. The club night shot
+   is dark overall but bright in patches, so a flat scrim keeps the paragraph
+   legible wherever it lands.
+   -------------------------------------------------------------------------- */
+.calendar_background { position: relative; }
+.calendar_background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(15,10,10,.55) 0%, rgba(15,10,10,.34) 40%, rgba(15,10,10,.52) 100%);
+}
+
+/* ==========================================================================
+   Mobile corrections (<= 767px)
+   The source layout was tuned for short German city names and English labels.
+   Spanish runs longer — "CALENDARIO", "Punto de encuentro:", "Únete al Team" —
+   which pushed display type past the viewport and collapsed the gaps the
+   design relied on.
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  /* Display headings are single long words; cap them against the viewport so
+     "CALENDARIO" cannot run off the right edge. */
+  .u-display {
+    font-size: min(calc(var(--font-size-display) * 1.12), 16.5vw);
+    overflow-wrap: anywhere;
+  }
+  .u-h1 { font-size: min(calc(var(--font-size-h1) * 1.10), 14vw); }
+  .u-h2 { font-size: min(var(--font-size-h2), 11vw); }
+
+  /* Card titles sat flush against the top edge of their image and clipped.
+     Give the header band real padding on all sides. */
+  .runs_cms_item_header,
+  .calendar_item_header,
+  .calendar_item_header_inner {
+    padding: .85em var(--grid-margin, 1.25em);
+    box-sizing: border-box;
+  }
+
+  /* The "Únete al Team" lettering is an absolutely-positioned overlay. At this
+     width it landed on top of the card title and date, so it drops out of the
+     flow here — the card already has its own "Ver detalle" action. */
+  .calendar_item_header .join-the-run_svg,
+  .calendar_item .join-the-run_svg.calendar_svg { display: none; }
+
+  /* Copy that overlays imagery needs breathing room from the frame edges. */
+  .calendar_container .u-h4,
+  .calendar_content,
+  .runs_content { padding-inline: var(--grid-margin, 1.25em); box-sizing: border-box; }
+
+  /* Footer rows stack at this width; the copyright and social line were
+     landing on each other. */
+  .footer_nav,
+  .footer_bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75em 1.25em;
+    align-items: center;
+  }
+  .footer_copyright { margin-block-start: .5em; }
+}
+
+/* --------------------------------------------------------------------------
+   Session card scrim
+   These cards carry the discipline name and the "Únete al Team" lettering
+   directly over the photo. The source imagery was dark; several of the
+   replacements are shot against bright sky, which left the white type sitting
+   on near-white. A scrim inside the card restores the original contrast
+   without dropping either label.
+   -------------------------------------------------------------------------- */
+.runs_cms_item_inner { position: relative; }
+.runs_cms_item_inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to bottom,
+    rgba(15,10,10,.50) 0%, rgba(15,10,10,.26) 38%,
+    rgba(15,10,10,.34) 72%, rgba(15,10,10,.52) 100%);
+}
+/* Lift the card's labels above the scrim. Only `z-index` — these elements are
+   already absolutely positioned by the source layout, and forcing `position`
+   here collapses them into the normal flow on top of each other. */
+.runs_cms_item_inner > *:not(.runs_map_img) { z-index: 2; }
