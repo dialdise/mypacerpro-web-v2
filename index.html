@@ -1,13 +1,540 @@
 <!doctype html>
+<html lang="es-PE">
+<head>
 <meta charset="utf-8">
-<title>MyPacerPro</title>
-<link rel="icon" type="image/svg+xml" href="brand/favicon.svg">
-<meta http-equiv="refresh" content="0; url=www/index.html">
-<link rel="canonical" href="www/index.html">
-<style>
-  html{background:#0F0A0A;color:#fff;font:16px/1.5 system-ui,sans-serif}
-  body{display:grid;place-items:center;min-height:100vh;margin:0}
-  a{color:#DC2626}
-</style>
-<p>Redirigiendo a <a href="www/index.html">MyPacerPro</a>…</p>
-<script>location.replace('www/index.html');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MY PACERPRO — Entrenamiento de running, natación y triatlón en Lima</title>
+<meta name="description" content="Coach personal, plan individual y entrenamientos presenciales en Lima. Running, natación y triatlón con programación 1:1, seguimiento semanal y una comunidad que entrena contigo.">
+<meta name="theme-color" content="#111315">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="canonical" href="https://www.mypacerpro.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="MY PACERPRO">
+<meta property="og:title" content="MY PACERPRO — Entrenamiento de running, natación y triatlón en Lima">
+<meta property="og:description" content="Coach personal, plan individual y entrenamientos presenciales en Lima. No entrenamos a todos igual.">
+<meta property="og:url" content="https://www.mypacerpro.com/">
+<meta property="og:image" content="https://www.mypacerpro.com/assets/img/mpp-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MY PACERPRO — Running, natación y triatlón en Lima">
+<meta name="twitter:description" content="Coach personal, plan individual y entrenamientos presenciales en Lima.">
+<meta name="twitter:image" content="https://www.mypacerpro.com/assets/img/mpp-hero.jpg">
+
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/barlowcondensed-800.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-400.woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/mpp-hero.jpg" fetchpriority="high">
+<link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SportsActivityLocation",
+  "name":"MY PACERPRO",
+  "description":"Equipo de entrenamiento de deportes de resistencia en Lima: running, natación y triatlón con coach personal y plan individual.",
+  "url":"https://www.mypacerpro.com/",
+  "telephone":"+51995847851",
+  "sameAs":["https://www.instagram.com/mypacerpro/"],
+  "areaServed":{"@type":"City","name":"Lima","address":{"@type":"PostalAddress","addressCountry":"PE"}},
+  "location":[
+    {"@type":"Place","name":"Parque María Reiche","address":{"@type":"PostalAddress","addressLocality":"Miraflores","addressRegion":"Lima","addressCountry":"PE"}},
+    {"@type":"Place","name":"Piscina Alfonso Ugarte","address":{"@type":"PostalAddress","addressLocality":"San Isidro","addressRegion":"Lima","addressCountry":"PE"}},
+    {"@type":"Place","name":"Playa Pescadores","address":{"@type":"PostalAddress","addressLocality":"Lima","addressCountry":"PE"}}
+  ],
+  "makesOffer":[
+    {"@type":"Offer","name":"Running presencial","price":"175","priceCurrency":"PEN"},
+    {"@type":"Offer","name":"Running virtual","price":"160","priceCurrency":"PEN"},
+    {"@type":"Offer","name":"Natación presencial","price":"280","priceCurrency":"PEN"},
+    {"@type":"Offer","name":"Natación semipresencial","price":"195","priceCurrency":"PEN"},
+    {"@type":"Offer","name":"Triatlón","price":"630","priceCurrency":"PEN"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="#top" aria-label="MY PACERPRO — inicio">
+      <img src="assets/img/logo.svg" alt="MY PACERPRO" width="560" height="96">
+    </a>
+
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#running">Running</a>
+      <a href="#natacion">Natación</a>
+      <a href="#triatlon">Triatlón</a>
+      <a href="#comunidad">Equipo</a>
+      <a href="#coaches">Coaches</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <a class="btn btn-primary nav-cta" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20empezar%20a%20entrenar." target="_blank" rel="noopener">Empieza a entrenar</a>
+
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Menú móvil">
+    <a href="#running">Running</a>
+    <a href="#natacion">Natación</a>
+    <a href="#triatlon">Triatlón</a>
+    <a href="#planes">Planes</a>
+    <a href="#comunidad">Equipo</a>
+    <a href="#coaches">Coaches</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="menu-foot">
+    <a class="btn btn-primary" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20empezar%20a%20entrenar." target="_blank" rel="noopener">Empieza a entrenar</a>
+    <a class="btn btn-ghost" href="https://www.instagram.com/mypacerpro/" target="_blank" rel="noopener">@mypacerpro</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="top">
+  <div class="hero-media">
+    <img src="assets/img/mpp-hero.jpg" alt="Atletas de MY PACERPRO entrenando en grupo en la Costa Verde, Lima" width="1500" height="2000" fetchpriority="high">
+  </div>
+  <div class="wrap hero-inner">
+    <h1 class="rise">Tu objetivo.<br>Tu plan.<br><em>Tu equipo.</em></h1>
+    <p class="lede rise d1">Entrenamiento personalizado de running, natación y triatlón en Lima. Coach asignado, planificación individual y una comunidad que entrena contigo.</p>
+    <div class="hero-actions rise d2">
+      <a class="btn btn-primary btn-block" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20empezar%20a%20entrenar." target="_blank" rel="noopener">
+        Empieza a entrenar
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+      </a>
+      <a class="btn btn-ghost btn-block" href="#planes">Ver planes y precios</a>
+    </div>
+    <p class="hero-disc rise d3"><b>Running</b> <i>·</i> <b>Natación</b> <i>·</i> <b>Triatlón</b></p>
+  </div>
+</section>
+
+<!-- ============================ MÉTODO ============================ -->
+<section class="band" id="metodo">
+  <div class="wrap">
+    <p class="kicker rise">El método</p>
+    <h2 class="rise">No entrenamos<br>a todos igual.</h2>
+    <p class="lede rise d1" style="margin-top:18px">Cada atleta llega con un objetivo, un nivel, una disponibilidad y un contexto distinto. La programación se construye sobre eso, no sobre una plantilla.</p>
+
+    <ol class="flow rise d2">
+      <li><span class="n">01</span><div><h3>Tu coach</h3><p>Una persona asignada que conoce tu caso y responde.</p></div></li>
+      <li><span class="n">02</span><div><h3>Tu plan</h3><p>Programación mensual construida para tus objetivos.</p></div></li>
+      <li><span class="n">03</span><div><h3>Tu seguimiento</h3><p>Revisión semanal y ajustes según cómo vas respondiendo.</p></div></li>
+      <li><span class="n">04</span><div><h3>Tu equipo</h3><p>Sesiones presenciales con el resto del team.</p></div></li>
+      <li><span class="n">05</span><div><h3>Tu progreso</h3><p>El plan se mueve contigo conforme avanzas.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ 1:1 ============================ -->
+<section class="band solo" id="uno-a-uno">
+  <div class="solo-media">
+    <img src="assets/img/mpp-pair-side.jpg" alt="Dos corredoras de MY PACERPRO entrenando juntas a ritmo conversado" width="1200" height="1600" loading="lazy">
+  </div>
+  <div class="wrap">
+    <p class="kicker rise">Running 1:1</p>
+    <h2 class="rise">Entrenamos juntos.<br><em>Pero tu plan es tuyo.</em></h2>
+    <p class="lede rise d1" style="margin-top:18px">Compartir la sesión del miércoles no significa compartir el entrenamiento. Cada corredor llega con su propia programación y corre a sus propios ritmos.</p>
+
+    <div class="split rise d2">
+      <div>
+        <h3>Individual</h3>
+        <ul>
+          <li>Coach personal asignado</li>
+          <li>Programación individual</li>
+          <li>Ritmos propios</li>
+          <li>Volumen propio</li>
+          <li>Objetivos propios</li>
+          <li>Seguimiento individual</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Compartido</h3>
+        <ul class="shared">
+          <li>Sesiones presenciales de miércoles y sábado</li>
+          <li>El equipo y la gente con la que entrenas</li>
+          <li>Charlas pre y post carrera</li>
+          <li>La comunidad MY PACERPRO</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RUNNING ============================ -->
+<section class="band" id="running">
+  <div class="wrap">
+    <div class="disc-head">
+      <div>
+        <p class="kicker rise">Disciplina 01</p>
+        <h2 class="rise">Running</h2>
+      </div>
+      <p class="lede rise d1">Entrenamiento 1:1 dentro de la comunidad. Eliges si lo haces con el equipo o por tu cuenta.</p>
+    </div>
+
+    <div class="plans">
+      <!-- presencial -->
+      <article class="plan feature rise">
+        <div class="plan-top">
+          <h3>Presencial</h3>
+          <span class="mode on">Con el equipo</span>
+        </div>
+        <p class="price">S/175 <small>/ mes</small></p>
+        <p class="plan-note">Todo el servicio 1:1 más acceso a las sesiones presenciales del equipo.</p>
+        <ul class="feats">
+          <li>Coach personal asignado</li>
+          <li>Reunión introductoria</li>
+          <li>Plan mensual 100% personalizado</li>
+          <li>Programación y seguimiento semanal</li>
+          <li>Programación mediante TrainingPeaks</li>
+          <li>Ajustes según rendimiento y evolución</li>
+          <li>Acceso a sesiones presenciales</li>
+          <li>Comunicación constante por WhatsApp</li>
+          <li>Charlas pre y post carrera</li>
+          <li>Programación de fuerza y movilidad</li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20entrenar%20Running%20presencial%20(S%2F175)." target="_blank" rel="noopener">Quiero entrenar running</a>
+      </article>
+
+      <!-- virtual -->
+      <article class="plan rise d1">
+        <div class="plan-top">
+          <h3>Virtual</h3>
+          <span class="mode">Desde donde estés</span>
+        </div>
+        <p class="price">S/160 <small>/ mes</small></p>
+        <p class="plan-note">El mismo entrenamiento 1:1. Ejecutas tus sesiones de forma independiente con planificación y seguimiento remoto.</p>
+        <ul class="feats">
+          <li>Coach personal asignado</li>
+          <li>Reunión introductoria</li>
+          <li>Plan mensual personalizado</li>
+          <li>Programación mediante TrainingPeaks</li>
+          <li>Seguimiento semanal</li>
+          <li>Ajustes según rendimiento</li>
+          <li>Comunicación constante por WhatsApp</li>
+          <li>Programación de fuerza y movilidad</li>
+          <li>Charlas pre y post carrera</li>
+        </ul>
+        <a class="btn btn-ghost btn-block" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20Running%20virtual%20(S%2F160)." target="_blank" rel="noopener">Quiero running virtual</a>
+      </article>
+    </div>
+
+    <dl class="facts rise d2">
+      <div><dt>Miércoles</dt><dd>4:50 a. m.<span>Puntual</span></dd></div>
+      <div><dt>Sábados — fondo</dt><dd>4:50 a. m.<span>Puntual</span></dd></div>
+      <div><dt>Punto de encuentro</dt><dd>Parque María Reiche<span>Miraflores, Lima</span></dd></div>
+    </dl>
+    <p class="muted rise d3" style="margin-top:16px;font-size:.92rem">Las únicas sesiones presenciales de running son miércoles y sábado. El resto de la semana lo trabajas según tu plan. La asistencia no es obligatoria, pero es una parte importante de la experiencia.</p>
+  </div>
+</section>
+
+<!-- ============================ NATACIÓN ============================ -->
+<section class="band" id="natacion" style="background:#0E1011">
+  <div class="wrap">
+    <div class="disc-head">
+      <div>
+        <p class="kicker rise">Disciplina 02</p>
+        <h2 class="rise">Natación</h2>
+      </div>
+      <p class="lede rise d1">Trabajo técnico en piscina y sesiones en mar abierto. Dos entornos, una progresión.</p>
+    </div>
+
+    <div class="plans">
+      <article class="plan feature rise">
+        <div class="plan-top">
+          <h3>Presencial</h3>
+          <span class="mode on">12 sesiones / mes</span>
+        </div>
+        <p class="price">S/280 <small>/ mes</small></p>
+        <p class="plan-note">Dos sesiones semanales en piscina y una en mar.</p>
+        <ul class="feats">
+          <li>2 sesiones por semana en piscina</li>
+          <li>1 sesión por semana en mar</li>
+          <li>Trabajo técnico y específico en piscina</li>
+          <li>Mar abierto para resistencia y confianza</li>
+          <li>Adaptación a distintas condiciones</li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20entrenar%20Nataci%C3%B3n%20presencial%20(S%2F280)." target="_blank" rel="noopener">Quiero entrenar natación</a>
+      </article>
+
+      <article class="plan rise d1">
+        <div class="plan-top">
+          <h3>Semipresencial / Virtual</h3>
+          <span class="mode">Modalidad</span>
+        </div>
+        <p class="price">S/195 <small>/ mes</small></p>
+        <p class="plan-note">Modalidad disponible. Escríbenos y te contamos cómo se estructura según tu caso.</p>
+        <p class="todo">Detalle pendiente de confirmar</p>
+        <a class="btn btn-ghost btn-block" style="margin-top:22px" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20informaci%C3%B3n%20sobre%20Nataci%C3%B3n%20semipresencial%20(S%2F195)." target="_blank" rel="noopener">Quiero más información</a>
+      </article>
+    </div>
+
+    <dl class="facts rise d2">
+      <div><dt>Piscina</dt><dd>Lunes y viernes<span>4:50 a. m. — Piscina Alfonso Ugarte, San Isidro</span></dd></div>
+      <div><dt>Mar</dt><dd>Domingos<span>5:50 a. m. — Playa Pescadores</span></dd></div>
+      <div><dt>Volumen</dt><dd>12 sesiones<span>Al mes</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============================ TRIATLÓN ============================ -->
+<section class="band" id="triatlon">
+  <div class="wrap">
+    <div class="disc-head">
+      <div>
+        <p class="kicker rise">Disciplina 03</p>
+        <h2 class="rise">Triatlón</h2>
+      </div>
+      <p class="lede rise d1">Las tres disciplinas integradas en un solo plan y un solo equipo.</p>
+    </div>
+
+    <div class="tri-grid rise d1">
+      <div class="tri-cell"><span class="op">+</span><span class="tag">Run</span><span class="amt">S/175</span></div>
+      <div class="tri-cell"><span class="op">+</span><span class="tag">Bike</span><span class="amt">S/175</span></div>
+      <div class="tri-cell"><span class="tag">Swim</span><span class="amt">S/280</span></div>
+    </div>
+
+    <div class="tri-total rise d2">
+      <div>
+        <p class="kicker plain" style="margin-bottom:4px">Triatlón completo</p>
+        <p class="price">S/630 <small>/ mes</small></p>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20entrenar%20Triatl%C3%B3n%20(S%2F630)." target="_blank" rel="noopener">Quiero entrenar triatlón</a>
+    </div>
+    <p class="todo rise d3">Detalle del componente de ciclismo pendiente de confirmar</p>
+  </div>
+</section>
+
+<!-- ============================ PLANES ============================ -->
+<section class="band" id="planes" style="background:#0E1011">
+  <div class="wrap">
+    <p class="kicker rise">Planes</p>
+    <h2 class="rise">Elige tu modalidad.</h2>
+    <p class="lede rise d1" style="margin-top:18px">Tarifas mensuales del servicio. Si no sabes cuál es tu punto de partida, escríbenos y lo vemos contigo.</p>
+
+    <div class="table rise d2" style="margin-top:30px">
+      <div class="trow head"><span>Disciplina</span><span>Modalidad</span><span>Precio</span><span></span></div>
+
+      <div class="trow">
+        <span class="disc">Running</span>
+        <span class="mod">Presencial — con el equipo</span>
+        <span class="amt">S/175</span>
+        <span class="go"><a class="btn btn-primary" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20Running%20presencial%20(S%2F175)." target="_blank" rel="noopener">Empezar</a></span>
+      </div>
+      <div class="trow">
+        <span class="disc">Running</span>
+        <span class="mod">Virtual</span>
+        <span class="amt">S/160</span>
+        <span class="go"><a class="btn btn-ghost" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20Running%20virtual%20(S%2F160)." target="_blank" rel="noopener">Empezar</a></span>
+      </div>
+      <div class="trow">
+        <span class="disc">Natación</span>
+        <span class="mod">Presencial — 12 sesiones / mes</span>
+        <span class="amt">S/280</span>
+        <span class="go"><a class="btn btn-primary" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20Nataci%C3%B3n%20presencial%20(S%2F280)." target="_blank" rel="noopener">Empezar</a></span>
+      </div>
+      <div class="trow">
+        <span class="disc">Natación</span>
+        <span class="mod">Semipresencial / Virtual</span>
+        <span class="amt">S/195</span>
+        <span class="go"><a class="btn btn-ghost" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20informaci%C3%B3n%20sobre%20Nataci%C3%B3n%20semipresencial%20(S%2F195)." target="_blank" rel="noopener">Más info</a></span>
+      </div>
+      <div class="trow">
+        <span class="disc">Triatlón</span>
+        <span class="mod">Run + Bike + Swim</span>
+        <span class="amt">S/630</span>
+        <span class="go"><a class="btn btn-primary" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20Triatl%C3%B3n%20(S%2F630)." target="_blank" rel="noopener">Empezar</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CÓMO FUNCIONA ============================ -->
+<section class="band" id="como-funciona">
+  <div class="wrap">
+    <p class="kicker rise">Cómo funciona</p>
+    <h2 class="rise">De la primera<br>conversación al plan.</h2>
+
+    <div class="steps rise d1">
+      <div class="step"><span class="n">01</span><h3>Elige tu disciplina</h3><p>Running, natación o triatlón.</p></div>
+      <div class="step"><span class="n">02</span><h3>Conocemos tu objetivo</h3><p>Nivel actual, disponibilidad, experiencia y próximas competencias.</p></div>
+      <div class="step"><span class="n">03</span><h3>Te asignamos un coach</h3><p>Tu coach crea y supervisa tu planificación.</p></div>
+      <div class="step"><span class="n">04</span><h3>Empiezas a entrenar</h3><p>Recibes tu programación y comienza el seguimiento.</p></div>
+    </div>
+
+    <div style="margin-top:34px" class="rise d2">
+      <a class="btn btn-primary btn-block" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20empezar%20a%20entrenar." target="_blank" rel="noopener">
+        Empieza a entrenar
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COMUNIDAD ============================ -->
+<section class="band" id="comunidad" style="background:#0E1011">
+  <div class="wrap">
+    <p class="kicker rise">El equipo</p>
+    <h2 class="rise">Tu plan es personal.<br>El camino no<br>tiene que serlo.</h2>
+
+    <div class="gal rise d1">
+      <figure><img src="assets/img/mpp-group-brand.jpg" alt="Grupo de atletas MY PACERPRO corriendo juntos en Lima" width="1200" height="1600" loading="lazy"></figure>
+      <figure><img src="assets/img/mpp-solo-front.jpg" alt="Corredora de MY PACERPRO durante una sesión de pista" width="1200" height="1600" loading="lazy"></figure>
+      <figure><img src="assets/img/mpp-group-three.jpg" alt="Tres atletas del equipo entrenando en la Costa Verde" width="1200" height="1600" loading="lazy"></figure>
+      <figure><img src="assets/img/mpp-pair-kit.jpg" alt="Atletas con la camiseta de MY PACERPRO en un entrenamiento de madrugada" width="1200" height="1600" loading="lazy"></figure>
+      <figure><img src="assets/img/mpp-group-four.jpg" alt="Grupo del equipo corriendo en formación durante una sesión" width="1200" height="1600" loading="lazy"></figure>
+      <figure><img src="assets/img/mpp-solo-side.jpg" alt="Corredor de perfil durante un fondo del equipo" width="1200" height="1600" loading="lazy"></figure>
+      <figure><img src="assets/img/mpp-group-women.jpg" alt="Atletas del equipo MY PACERPRO entrenando juntas" width="1200" height="1600" loading="lazy"></figure>
+      <figure><img src="assets/img/mpp-solo-front2.jpg" alt="Atleta de MY PACERPRO en plena sesión de entrenamiento" width="1200" height="1600" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COACHES ============================ -->
+<section class="band" id="coaches">
+  <div class="wrap">
+    <p class="kicker rise">Coaches</p>
+    <h2 class="rise">Conoce a tus coaches.</h2>
+    <p class="lede rise d1" style="margin-top:18px">Detrás de cada plan hay una persona que lo escribe, lo revisa y responde cuando algo no va bien.</p>
+
+    <div class="cards rise d2">
+      <article class="card"><div class="ph">Foto pendiente</div><div class="body"><h3>Nombre del coach</h3><p class="role">Especialidad</p><p>Descripción breve pendiente de completar.</p></div></article>
+      <article class="card"><div class="ph">Foto pendiente</div><div class="body"><h3>Nombre del coach</h3><p class="role">Especialidad</p><p>Descripción breve pendiente de completar.</p></div></article>
+      <article class="card"><div class="ph">Foto pendiente</div><div class="body"><h3>Nombre del coach</h3><p class="role">Especialidad</p><p>Descripción breve pendiente de completar.</p></div></article>
+    </div>
+    <p class="todo">Datos de coaches pendientes de confirmar</p>
+  </div>
+</section>
+
+<!-- ============================ RESULTADOS ============================ -->
+<section class="band" id="resultados" style="background:#0E1011">
+  <div class="wrap">
+    <p class="kicker rise">Resultados</p>
+    <h2 class="rise">El trabajo<br>se termina viendo.</h2>
+
+    <div class="cards rise d1">
+      <article class="card"><div class="ph">Foto pendiente</div><div class="body"><h3>Nombre del atleta</h3><p class="role">Marca / carrera</p><p>Testimonio o resultado pendiente de completar.</p></div></article>
+      <article class="card"><div class="ph">Foto pendiente</div><div class="body"><h3>Nombre del atleta</h3><p class="role">Marca / carrera</p><p>Testimonio o resultado pendiente de completar.</p></div></article>
+      <article class="card"><div class="ph">Foto pendiente</div><div class="body"><h3>Nombre del atleta</h3><p class="role">Marca / carrera</p><p>Testimonio o resultado pendiente de completar.</p></div></article>
+    </div>
+    <p class="todo">Testimonios y resultados pendientes de confirmar</p>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="band" id="faq">
+  <div class="wrap">
+    <p class="kicker rise">Preguntas</p>
+    <h2 class="rise">Lo que suelen<br>preguntarnos.</h2>
+
+    <div class="faq rise d1">
+      <details>
+        <summary>¿Necesito tener experiencia para entrar?</summary>
+        <div class="ans"><p>No. El plan se construye desde tu nivel actual, tu disponibilidad y tu objetivo. Por eso la programación es individual y no una rutina común para todo el equipo.</p></div>
+      </details>
+      <details>
+        <summary>¿Los entrenamientos presenciales de running son obligatorios?</summary>
+        <div class="ans"><p>No son obligatorios. Son una parte importante de la experiencia MY PACERPRO, pero el resto de tu semana se trabaja según tu plan personalizado.</p></div>
+      </details>
+      <details>
+        <summary>¿Qué días entrena presencialmente el equipo de running?</summary>
+        <div class="ans"><p>Miércoles y sábados. Ambas sesiones empiezan a las <strong>4:50 a. m.</strong>, puntual. El sábado es la sesión de fondo. No hay más días de entrenamiento presencial de running.</p></div>
+      </details>
+      <details>
+        <summary>¿Dónde son los entrenamientos presenciales?</summary>
+        <div class="ans">
+          <p><strong>Running:</strong> Parque María Reiche, Miraflores.</p>
+          <p><strong>Natación — piscina:</strong> Piscina Alfonso Ugarte, San Isidro. Lunes y viernes, 4:50 a. m.</p>
+          <p><strong>Natación — mar:</strong> Playa Pescadores. Domingos, 5:50 a. m.</p>
+        </div>
+      </details>
+      <details>
+        <summary>¿Puedo entrenar running si no vivo en Lima?</summary>
+        <div class="ans"><p>Sí. La modalidad virtual (S/160 al mes) mantiene el coach asignado, el plan personalizado y el seguimiento semanal. Ejecutas las sesiones por tu cuenta desde donde estés.</p></div>
+      </details>
+      <details>
+        <summary>¿Cómo recibo mi planificación?</summary>
+        <div class="ans"><p>La programación se entrega mediante TrainingPeaks, y la comunicación con tu coach es constante por WhatsApp.</p></div>
+      </details>
+      <details>
+        <summary>¿Tengo un coach asignado?</summary>
+        <div class="ans"><p>Sí. Se te asigna un coach personal desde el inicio, con una reunión introductoria antes de empezar. Esa misma persona hace el seguimiento semanal y ajusta tu plan.</p></div>
+      </details>
+      <details>
+        <summary>¿Puedo preparar una carrera específica?</summary>
+        <div class="ans"><p>Sí. El plan se arma alrededor de tus competencias objetivo y se ajusta según tu rendimiento. Además hay charlas pre y post carrera con el equipo.</p></div>
+      </details>
+      <details>
+        <summary>¿Cómo son los pagos?</summary>
+        <div class="ans"><p class="todo" style="margin-top:0">Formas de pago pendientes de confirmar</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CIERRE ============================ -->
+<section class="band close" id="empezar">
+  <div class="close-media">
+    <img src="assets/img/mpp-group-four.jpg" alt="Equipo MY PACERPRO al completo después de una sesión de entrenamiento" width="1200" height="1600" loading="lazy">
+  </div>
+  <div class="wrap">
+    <h2 class="rise">Tu próximo objetivo<br>empieza acá.</h2>
+    <p class="lede rise d1">Cuéntanos qué quieres conseguir y te ayudamos a elegir el plan adecuado para ti.</p>
+    <a class="btn btn-primary btn-block rise d2" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20empezar%20a%20entrenar." target="_blank" rel="noopener">
+      Empieza a entrenar
+      <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img src="assets/img/logo.svg" alt="MY PACERPRO" width="560" height="96">
+        <p style="max-width:34ch">Equipo de entrenamiento de deportes de resistencia en Lima. Running, natación y triatlón.</p>
+      </div>
+      <div>
+        <h4>Disciplinas</h4>
+        <ul>
+          <li><a href="#running">Running</a></li>
+          <li><a href="#natacion">Natación</a></li>
+          <li><a href="#triatlon">Triatlón</a></li>
+          <li><a href="#planes">Planes y precios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/51995847851" target="_blank" rel="noopener">WhatsApp +51 995 847 851</a></li>
+          <li><a href="https://www.instagram.com/mypacerpro/" target="_blank" rel="noopener">@mypacerpro</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 MY PACERPRO — Lima, Perú</span>
+      <a href="terminos.html">Términos y Condiciones</a>
+      <a href="privacidad.html">Política de Privacidad</a>
+      <span class="muted">Parque María Reiche, Miraflores</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" id="wa" href="https://wa.me/51995847851?text=Hola%20MY%20PACERPRO%2C%20quiero%20empezar%20a%20entrenar." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.1.81.83-3.03-.2-.31a8.17 8.17 0 0 1-1.26-4.39c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.24-8.25 8.24Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.9 2.4 1.02 2.56c.12.17 1.75 2.67 4.25 3.75.59.25 1.06.4 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+</a>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
