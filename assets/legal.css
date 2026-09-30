@@ -115,3 +115,14 @@ footer a { color: var(--muted); }
   a { color: #000; }
   h2 { break-after: avoid; }
 }
+
+/* --- crédito de autoría --------------------------------------------------- */
+.credit{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+@media (min-width:768px){.credit{margin-left:auto}}
+.credit .by{color:#6E7579}
+.credit a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;
+  color:var(--muted);position:relative;transition:color .28s ease}
+.credit a:hover{color:var(--red)}
+.credit .name{font-family:"MPP Condensed","Arial Narrow",Impact,sans-serif;
+  font-weight:700;text-transform:uppercase;letter-spacing:.09em;font-size:.76rem}
+.credit svg{width:14px;height:14px;flex:none}

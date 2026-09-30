@@ -500,3 +500,25 @@ p{margin:0 0 1rem}
   .btn::before{display:none}
   .faq details[open] .ans{animation:none}
 }
+
+/* --------------------------------------------------------------------------
+   Crédito de autoría
+   Se separa de los enlaces legales con margin-inline-start:auto para que no
+   se lea como parte del aviso legal. Discreto en reposo, lima al pasar.
+   -------------------------------------------------------------------------- */
+.credit{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+@media (min-width:768px){.credit{margin-inline-start:auto}}
+.credit .by{color:#6E7579}
+.credit a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;
+  color:var(--muted);position:relative;transition:color .28s var(--ease)}
+.credit a:hover{color:var(--lime)}
+.credit .name{font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:.09em;font-size:.76rem}
+.credit .name::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;
+  background:var(--lime);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .32s var(--ease)}
+.credit a:hover .name::after{transform:scaleX(1)}
+.credit svg{width:14px;height:14px;flex:none}
+@media (prefers-reduced-motion:reduce){
+  .credit a,.credit .name::after{transition:none}
+}
