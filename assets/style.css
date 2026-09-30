@@ -212,8 +212,15 @@ p{margin:0 0 1rem}
 .solo{position:relative;overflow:hidden;background:#0D0F10}
 .solo-media{position:absolute;inset:0;z-index:0}
 .solo-media img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(.55)}
+/* El degradado horizontal funciona en escritorio, donde el texto se apoya en
+   la mitad izquierda. En móvil el texto ocupa todo el ancho y el lado derecho
+   quedaba demasiado claro (3.20:1 medido), así que ahí se usa uno vertical. */
 .solo-media::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(13,15,16,.95) 0%,rgba(13,15,16,.82) 48%,rgba(13,15,16,.60) 100%)}
+  background:linear-gradient(180deg,rgba(13,15,16,.90) 0%,rgba(13,15,16,.86) 55%,rgba(13,15,16,.93) 100%)}
+@media (min-width:768px){
+  .solo-media::after{
+    background:linear-gradient(90deg,rgba(13,15,16,.95) 0%,rgba(13,15,16,.82) 48%,rgba(13,15,16,.60) 100%)}
+}
 .solo .wrap{position:relative;z-index:1}
 .solo h2 em{font-style:normal;color:var(--lime);display:block}
 .split{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
@@ -403,11 +410,14 @@ p{margin:0 0 1rem}
 .motion-ready .ln-i{will-change:transform}
 .in .ln-i,.ln.in .ln-i{transform:none}
 
-/* --- revelado de imagen: barrido con clip -------------------------------- */
-.wipe{clip-path:inset(0 0 100% 0);transition:clip-path 900ms var(--ease)}
-.wipe.in{clip-path:inset(0 0 0% 0)}
-.wipe img{transform:scale(1.12);transition:transform 1400ms var(--ease)}
-.wipe.in img{transform:scale(1)}
+/* --- revelado de imagen: barrido con clip --------------------------------
+   El recorte va en la imagen, NO en el contenedor. Si se recorta el elemento
+   que observa el IntersectionObserver, este se queda sin área visible y nunca
+   dispara: el barrido no se abriría jamás. */
+.wipe{overflow:hidden}
+.wipe img{clip-path:inset(0 0 100% 0);transform:scale(1.12);
+  transition:clip-path 900ms var(--ease),transform 1400ms var(--ease)}
+.wipe.in img{clip-path:inset(0 0 0 0);transform:scale(1)}
 
 /* --- parallax ------------------------------------------------------------ */
 [data-par]{will-change:transform}
@@ -481,8 +491,7 @@ p{margin:0 0 1rem}
 /* --- respeto total a reduced-motion -------------------------------------- */
 @media (prefers-reduced-motion:reduce){
   .ln-i{transform:none!important;transition:none!important}
-  .wipe{clip-path:none!important;transition:none!important}
-  .wipe img{transform:none!important;transition:none!important}
+  .wipe img{clip-path:none!important;transform:none!important;transition:none!important}
   [data-par]{transform:none!important}
   .mq-track{transform:none!important}
   .tri-cell,.tri-cell .op{opacity:1!important;transform:none!important;transition:none!important}
