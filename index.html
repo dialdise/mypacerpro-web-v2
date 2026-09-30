@@ -54,6 +54,8 @@
 <body>
 
 <a class="skip" href="#main">Saltar al contenido</a>
+<div class="pace" id="pace" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <!-- ============================ NAV ============================ -->
 <header class="nav" id="nav">
@@ -100,7 +102,7 @@
 <!-- ============================ HERO ============================ -->
 <section class="hero" id="top">
   <div class="hero-media">
-    <img src="assets/img/mpp-hero.jpg" alt="Atletas de MY PACERPRO entrenando en grupo en la Costa Verde, Lima" width="1500" height="2000" fetchpriority="high">
+    <img data-par="0.18" src="assets/img/mpp-hero.jpg" alt="Atletas de MY PACERPRO entrenando en grupo en la Costa Verde, Lima" width="1500" height="2000" fetchpriority="high">
   </div>
   <div class="wrap hero-inner">
     <h1 class="rise">Tu objetivo.<br>Tu plan.<br><em>Tu equipo.</em></h1>
@@ -133,10 +135,19 @@
   </div>
 </section>
 
+<!-- ====================== MARQUESINA CINÉTICA ====================== -->
+<section class="mq" aria-hidden="true">
+  <div class="mq-track" id="mqTrack">
+    <span class="mq-item">Running</span><span class="mq-item mq-sep">/</span>
+    <span class="mq-item fill">Natación</span><span class="mq-item mq-sep">/</span>
+    <span class="mq-item">Triatlón</span><span class="mq-item mq-sep">/</span>
+  </div>
+</section>
+
 <!-- ============================ 1:1 ============================ -->
 <section class="band solo" id="uno-a-uno">
-  <div class="solo-media">
-    <img src="assets/img/mpp-pair-side.jpg" alt="Dos corredoras de MY PACERPRO entrenando juntas a ritmo conversado" width="1200" height="1600" loading="lazy">
+  <div class="solo-media wipe">
+    <img data-par="0.12" src="assets/img/mpp-pair-side.jpg" alt="Dos corredoras de MY PACERPRO entrenando juntas a ritmo conversado" width="1200" height="1600" loading="lazy">
   </div>
   <div class="wrap">
     <p class="kicker rise">Running 1:1</p>
@@ -385,14 +396,14 @@
     <h2 class="rise">Tu plan es personal.<br>El camino no<br>tiene que serlo.</h2>
 
     <div class="gal rise d1">
-      <figure><img src="assets/img/mpp-group-brand.jpg" alt="Grupo de atletas MY PACERPRO corriendo juntos en Lima" width="1200" height="1600" loading="lazy"></figure>
-      <figure><img src="assets/img/mpp-solo-front.jpg" alt="Corredora de MY PACERPRO durante una sesión de pista" width="1200" height="1600" loading="lazy"></figure>
-      <figure><img src="assets/img/mpp-group-three.jpg" alt="Tres atletas del equipo entrenando en la Costa Verde" width="1200" height="1600" loading="lazy"></figure>
-      <figure><img src="assets/img/mpp-pair-kit.jpg" alt="Atletas con la camiseta de MY PACERPRO en un entrenamiento de madrugada" width="1200" height="1600" loading="lazy"></figure>
-      <figure><img src="assets/img/mpp-group-four.jpg" alt="Grupo del equipo corriendo en formación durante una sesión" width="1200" height="1600" loading="lazy"></figure>
-      <figure><img src="assets/img/mpp-solo-side.jpg" alt="Corredor de perfil durante un fondo del equipo" width="1200" height="1600" loading="lazy"></figure>
-      <figure><img src="assets/img/mpp-group-women.jpg" alt="Atletas del equipo MY PACERPRO entrenando juntas" width="1200" height="1600" loading="lazy"></figure>
-      <figure><img src="assets/img/mpp-solo-front2.jpg" alt="Atleta de MY PACERPRO en plena sesión de entrenamiento" width="1200" height="1600" loading="lazy"></figure>
+      <figure class="wipe"><img src="assets/img/mpp-group-brand.jpg" alt="Grupo de atletas MY PACERPRO corriendo juntos en Lima" width="1200" height="1600" loading="lazy"></figure>
+      <figure class="wipe"><img src="assets/img/mpp-solo-front.jpg" alt="Corredora de MY PACERPRO durante una sesión de pista" width="1200" height="1600" loading="lazy"></figure>
+      <figure class="wipe"><img src="assets/img/mpp-group-three.jpg" alt="Tres atletas del equipo entrenando en la Costa Verde" width="1200" height="1600" loading="lazy"></figure>
+      <figure class="wipe"><img src="assets/img/mpp-pair-kit.jpg" alt="Atletas con la camiseta de MY PACERPRO en un entrenamiento de madrugada" width="1200" height="1600" loading="lazy"></figure>
+      <figure class="wipe"><img src="assets/img/mpp-group-four.jpg" alt="Grupo del equipo corriendo en formación durante una sesión" width="1200" height="1600" loading="lazy"></figure>
+      <figure class="wipe"><img src="assets/img/mpp-solo-side.jpg" alt="Corredor de perfil durante un fondo del equipo" width="1200" height="1600" loading="lazy"></figure>
+      <figure class="wipe"><img src="assets/img/mpp-group-women.jpg" alt="Atletas del equipo MY PACERPRO entrenando juntas" width="1200" height="1600" loading="lazy"></figure>
+      <figure class="wipe"><img src="assets/img/mpp-solo-front2.jpg" alt="Atleta de MY PACERPRO en plena sesión de entrenamiento" width="1200" height="1600" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -481,8 +492,8 @@
 
 <!-- ============================ CIERRE ============================ -->
 <section class="band close" id="empezar">
-  <div class="close-media">
-    <img src="assets/img/mpp-group-four.jpg" alt="Equipo MY PACERPRO al completo después de una sesión de entrenamiento" width="1200" height="1600" loading="lazy">
+  <div class="close-media wipe">
+    <img data-par="0.12" src="assets/img/mpp-group-four.jpg" alt="Equipo MY PACERPRO al completo después de una sesión de entrenamiento" width="1200" height="1600" loading="lazy">
   </div>
   <div class="wrap">
     <h2 class="rise">Tu próximo objetivo<br>empieza acá.</h2>

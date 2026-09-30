@@ -104,9 +104,31 @@ No se inventó ningún dato en ninguno de esos puntos.
 - La arquitectura cubre *running coach Lima*, *entrenamiento running Lima*, *natación Lima* y
   *entrenamiento triatlón Lima* de forma natural, sin repetición forzada.
 
+## Sistema de movimiento
+
+Todo el movimiento comparte una sola cadencia — 620ms, curva `(.22,.7,.28,1)` y 70ms entre
+elementos, como una zancada constante. Sin librerías: un único bucle `requestAnimationFrame`
+para lo que depende del scroll e `IntersectionObserver` para lo que ocurre una vez.
+
+| Pieza | Qué hace |
+|---|---|
+| Línea de ritmo | Barra lima de 2px arriba con el progreso de lectura |
+| Titulares | Revelado línea por línea con máscara, escalonado |
+| Marquesina | Banda cinética que acelera y se inclina con la velocidad del scroll, e invierte el sentido al subir |
+| Fotografía | Barrido con `clip-path` al entrar y parallax a distinta velocidad que el texto |
+| Precios | Cuentan desde cero al aparecer |
+| Triatlón | Las tres celdas se ensamblan desde su lado y los `+` aparecen después |
+| Botones | Relleno lima que barre de abajo arriba; en escritorio el contenido se imanta al cursor |
+| Nav | Se esconde al bajar y vuelve al subir |
+| Grano | Textura fija al 3.8% para quitar el plano digital |
+
+Solo se animan `transform` y `opacity`: nada toca el layout. La marquesina se detiene cuando
+sale de pantalla o la pestaña no está visible. Con `prefers-reduced-motion` todo queda estático
+y la barra de ritmo desaparece.
+
 ## Rendimiento
 
-- Sin librerías. `app.js` son 58 líneas.
+- Sin librerías. `app.js` son 212 líneas, un solo bucle rAF.
 - Fuentes autoalojadas, solo subconjunto latino, con `preload` de las dos críticas.
 - Foto del hero con `fetchpriority="high"`; el resto en `loading="lazy"`.
 - Reveal por `IntersectionObserver`, que se desconecta tras la primera aparición.

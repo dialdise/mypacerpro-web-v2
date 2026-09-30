@@ -369,3 +369,125 @@ p{margin:0 0 1rem}
 .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--lime);color:#111315;
   padding:12px 18px;font-family:var(--display);font-weight:700;text-transform:uppercase}
 .skip:focus{left:8px;top:8px}
+
+/* ==========================================================================
+   SISTEMA DE MOVIMIENTO
+   Una sola cadencia para toda la web: 620ms, curva (.22,.7,.28,1), retardo
+   base de 70ms entre elementos — como una zancada constante.
+   Todo se anima con transform y opacity (compositor), nunca con layout.
+   ========================================================================== */
+
+:root{
+  --ease:cubic-bezier(.22,.7,.28,1);
+  --dur:620ms;
+  --step:70ms;             /* cadencia del stagger */
+}
+
+/* --- barra de progreso: la "línea de ritmo" ------------------------------ */
+.pace{position:fixed;top:0;left:0;height:2px;width:100%;z-index:70;
+  background:var(--lime);transform:scaleX(0);transform-origin:0 50%;
+  will-change:transform;pointer-events:none}
+
+/* --- grano sutil: da textura, evita el plano digital --------------------- */
+.grain{position:fixed;inset:0;z-index:65;pointer-events:none;opacity:.038;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay}
+
+/* --- nav: se oculta bajando, vuelve subiendo ----------------------------- */
+.nav{transition:background .25s ease,border-color .25s ease,transform .42s var(--ease)}
+.nav.hide{transform:translateY(-100%)}
+
+/* --- revelado por líneas (titulares) ------------------------------------- */
+.ln{display:block;overflow:hidden}
+.ln-i{display:block;transform:translateY(105%);transition:transform var(--dur) var(--ease)}
+.motion-ready .ln-i{will-change:transform}
+.in .ln-i,.ln.in .ln-i{transform:none}
+
+/* --- revelado de imagen: barrido con clip -------------------------------- */
+.wipe{clip-path:inset(0 0 100% 0);transition:clip-path 900ms var(--ease)}
+.wipe.in{clip-path:inset(0 0 0% 0)}
+.wipe img{transform:scale(1.12);transition:transform 1400ms var(--ease)}
+.wipe.in img{transform:scale(1)}
+
+/* --- parallax ------------------------------------------------------------ */
+[data-par]{will-change:transform}
+
+/* --- botones: relleno lima que barre ------------------------------------- */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--lime);
+  transform:scaleY(0);transform-origin:50% 100%;transition:transform .42s var(--ease)}
+.btn-ghost:hover::before{transform:scaleY(1)}
+.btn-ghost:hover{color:#111315;border-color:var(--lime)}
+.btn-primary::before{background:#DCF56A}
+.btn-primary:hover::before{transform:scaleY(1)}
+.btn .mag{display:inline-flex;align-items:center;gap:10px;
+  transition:transform .32s var(--ease)}
+
+/* --- enlaces del nav: subrayado que se dibuja ---------------------------- */
+@media (min-width:1024px){
+  .nav-links a{position:relative;border-bottom:0}
+  .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+    background:var(--lime);transform:scaleX(0);transform-origin:0 50%;
+    transition:transform .34s var(--ease)}
+  .nav-links a:hover::after{transform:scaleX(1)}
+}
+
+/* --- marquesina cinética ------------------------------------------------- */
+.mq{position:relative;overflow:hidden;padding-block:34px;
+  border-block:1px solid var(--line);background:#0E1011}
+@media (min-width:768px){.mq{padding-block:52px}}
+.mq-track{display:flex;width:max-content;will-change:transform}
+.mq-item{font-family:var(--display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(3rem,11vw,7.5rem);line-height:.9;letter-spacing:-.025em;
+  padding-right:.38em;white-space:nowrap;color:transparent;
+  -webkit-text-stroke:1px #3A4246}
+.mq-item.fill{color:var(--lime);-webkit-text-stroke:0}
+.mq-sep{color:var(--lime);-webkit-text-stroke:0;padding-right:.38em}
+
+/* --- contador de precio -------------------------------------------------- */
+.price .num{display:inline-block;font-variant-numeric:tabular-nums}
+
+/* --- triatlón: ensamblaje ------------------------------------------------ */
+.tri-cell{opacity:0;transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.tri-cell:nth-child(1){transform:translateX(-26px)}
+.tri-cell:nth-child(2){transform:translateY(26px)}
+.tri-cell:nth-child(3){transform:translateX(26px)}
+.tri-grid.in .tri-cell{opacity:1;transform:none}
+.tri-grid.in .tri-cell:nth-child(2){transition-delay:var(--step)}
+.tri-grid.in .tri-cell:nth-child(3){transition-delay:calc(var(--step) * 2)}
+.tri-cell .op{opacity:0;transform:scale(.4);
+  transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.tri-grid.in .tri-cell .op{opacity:1;transform:none;transition-delay:calc(var(--step) * 3)}
+
+/* --- pasos: la cifra se dibuja ------------------------------------------- */
+.step .n{transition:color .5s var(--ease),-webkit-text-stroke-color .5s var(--ease)}
+.step:hover .n{color:var(--lime);-webkit-text-stroke-color:var(--lime)}
+
+/* --- tarjetas de plan: elevación al pasar el cursor ---------------------- */
+.plan{transition:border-color .34s var(--ease),transform .42s var(--ease)}
+@media (hover:hover) and (min-width:900px){
+  .plan:hover{transform:translateY(-4px);border-color:#3D4A1B}
+}
+
+/* --- filas de la tabla --------------------------------------------------- */
+.trow:not(.head){transition:background .3s var(--ease)}
+@media (hover:hover){.trow:not(.head):hover{background:#15181A}}
+
+/* --- FAQ: apertura suave ------------------------------------------------- */
+.faq .ans{overflow:hidden}
+.faq details[open] .ans{animation:ansIn .42s var(--ease) both}
+@keyframes ansIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* --- respeto total a reduced-motion -------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  .ln-i{transform:none!important;transition:none!important}
+  .wipe{clip-path:none!important;transition:none!important}
+  .wipe img{transform:none!important;transition:none!important}
+  [data-par]{transform:none!important}
+  .mq-track{transform:none!important}
+  .tri-cell,.tri-cell .op{opacity:1!important;transform:none!important;transition:none!important}
+  .pace{display:none}
+  .nav.hide{transform:none}
+  .btn::before{display:none}
+  .faq details[open] .ans{animation:none}
+}
