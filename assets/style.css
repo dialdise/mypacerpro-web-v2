@@ -522,3 +522,62 @@ p{margin:0 0 1rem}
 @media (prefers-reduced-motion:reduce){
   .credit a,.credit .name::after{transition:none}
 }
+
+/* ==========================================================================
+   FICHAS DE COACH
+   Las credenciales son el argumento de confianza más fuerte de la web, pero
+   son listas largas. La ficha muestra lo esencial y guarda la formación
+   completa en un <details>: accesible sin JS y sin llenar la página de texto.
+   ========================================================================== */
+.coaches{display:grid;gap:18px;margin-top:34px}
+@media (min-width:720px){.coaches{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1080px){.coaches{grid-template-columns:repeat(3,1fr);gap:20px}}
+
+.coach{border:1px solid var(--line);background:var(--surface);border-radius:2px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:border-color .34s var(--ease),transform .42s var(--ease)}
+@media (hover:hover) and (min-width:720px){
+  .coach:hover{transform:translateY(-4px);border-color:#3D4A1B}
+}
+.coach-ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:#0E1011}
+.coach-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;
+  transition:transform .8s var(--ease)}
+@media (hover:hover){.coach:hover .coach-ph img{transform:scale(1.04)}}
+/* degradado inferior para que el nombre no caiga sobre zonas claras */
+.coach-ph::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 52%,rgba(24,27,29,.72) 86%,var(--surface) 100%)}
+
+.coach-body{padding:0 22px 24px;margin-top:-30px;position:relative;z-index:1;
+  display:flex;flex-direction:column;flex:1}
+.coach h3{font-size:clamp(1.35rem,4.4vw,1.6rem);line-height:1}
+.coach .role{font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:.11em;font-size:.72rem;color:var(--lime);margin:9px 0 12px}
+.coach .bio{margin:0 0 16px;color:#C2C9CC;font-size:.93rem;line-height:1.55}
+
+/* palmarés: solo donde existe dato confirmado */
+.coach .honours{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:6px}
+.coach .honours li{position:relative;padding-left:20px;font-size:.88rem;color:#C2C9CC}
+.coach .honours li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:1px;
+  background:var(--lime)}
+
+/* formación plegable */
+.creds{margin-top:auto;border-top:1px solid var(--line);padding-top:14px}
+.creds summary{list-style:none;cursor:pointer;position:relative;padding-right:26px;
+  font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  font-size:.72rem;color:var(--muted);transition:color .24s var(--ease)}
+.creds summary::-webkit-details-marker{display:none}
+.creds summary:hover{color:var(--lime)}
+.creds summary::after{content:"";position:absolute;right:4px;top:50%;width:8px;height:8px;
+  margin-top:-5px;border-right:2px solid var(--lime);border-bottom:2px solid var(--lime);
+  transform:rotate(45deg);transition:transform .24s var(--ease)}
+.creds details[open] summary::after,.creds[open] summary::after{transform:rotate(-135deg)}
+.creds ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:9px}
+.creds li{position:relative;padding-left:18px;font-size:.84rem;line-height:1.5;color:var(--muted)}
+.creds li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:#4A5257}
+.creds li b{color:#C2C9CC;font-weight:600}
+.creds .wip{color:var(--lime);font-size:.74rem;font-weight:600}
+.creds[open] ul{animation:ansIn .36s var(--ease) both}
+@media (prefers-reduced-motion:reduce){
+  .coach,.coach-ph img,.creds summary{transition:none}
+  .creds[open] ul{animation:none}
+}

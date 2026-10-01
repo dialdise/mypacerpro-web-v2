@@ -81,7 +81,7 @@ para que la suma se lea sin explicarla.
 
 Marcado en la web con una etiqueta visible «pendiente de confirmar».
 
-1. **Coaches** — nombre, foto, especialidad y descripción de cada uno (3 fichas de ejemplo).
+1. **Apellido de Crisha** — se entregó solo el nombre de pila; el resto de la ficha está completa.
 2. **Resultados y testimonios** — 3 fichas de ejemplo, sin contenido inventado.
 3. **Natación semipresencial / virtual** — solo figura precio y modalidad, como se indicó.
 4. **Ciclismo** — aparece únicamente como los S/175 que componen el triatlón. Sin horarios,
@@ -118,6 +118,7 @@ para lo que depende del scroll e `IntersectionObserver` para lo que ocurre una v
 | Fotografía | Barrido con `clip-path` al entrar y parallax a distinta velocidad que el texto |
 | Precios | Cuentan desde cero al aparecer |
 | Triatlón | Las tres celdas se ensamblan desde su lado y los `+` aparecen después |
+| Coaches | Formación completa plegada en `<details>`; funciona sin JS |
 | Botones | Relleno lima que barre de abajo arriba; en escritorio el contenido se imanta al cursor |
 | Nav | Se esconde al bajar y vuelve al subir |
 | Grano | Textura fija al 3.8% para quitar el plano digital |
