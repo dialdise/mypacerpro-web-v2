@@ -110,6 +110,27 @@
   }
 
   /* ======================================================================
+     4b. PASOS QUE SE ENCIENDEN AL BAJAR
+     En escritorio basta el hover, pero en móvil no existe. Se enciende la
+     cifra cuando el paso cruza el centro de la pantalla y se queda encendida.
+     ====================================================================== */
+  const steps = document.querySelectorAll('.step');
+  if (steps.length) {
+    if (reduce || !('IntersectionObserver' in window)) {
+      steps.forEach(s => s.classList.add('lit'));
+    } else {
+      const ioStep = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          e.target.classList.add('lit');
+          ioStep.unobserve(e.target);
+        }
+      }, { rootMargin: '-42% 0px -42% 0px', threshold: 0 });
+      steps.forEach(s => ioStep.observe(s));
+    }
+  }
+
+  /* ======================================================================
      5. MARQUESINA REACTIVA A LA VELOCIDAD DE SCROLL
      Avanza sola; cuando haces scroll rápido acelera y se inclina levemente.
      Es el único elemento que justifica un bucle continuo, así que se detiene

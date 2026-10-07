@@ -469,9 +469,22 @@ p{margin:0 0 1rem}
   transition:opacity .4s var(--ease),transform .4s var(--ease)}
 .tri-grid.in .tri-cell .op{opacity:1;transform:none;transition-delay:calc(var(--step) * 3)}
 
-/* --- pasos: la cifra se dibuja ------------------------------------------- */
-.step .n{transition:color .5s var(--ease),-webkit-text-stroke-color .5s var(--ease)}
-.step:hover .n{color:var(--lime);-webkit-text-stroke-color:var(--lime)}
+/* --- pasos: la cifra se enciende -----------------------------------------
+   En escritorio se enciende al pasar el cursor, pero en móvil no hay hover:
+   ahí la enciende el scroll al cruzar el centro de la pantalla, y se queda
+   encendida, de modo que la sección se lee como un avance. */
+.step .n{transition:color .55s var(--ease),-webkit-text-stroke-color .55s var(--ease)}
+.step:hover .n,
+.step.lit .n{color:var(--lime);-webkit-text-stroke-color:var(--lime)}
+/* en escritorio los cuatro pasos caen en una fila: se escalonan */
+@media (min-width:1100px){
+  .step:nth-child(2).lit .n{transition-delay:var(--step)}
+  .step:nth-child(3).lit .n{transition-delay:calc(var(--step) * 2)}
+  .step:nth-child(4).lit .n{transition-delay:calc(var(--step) * 3)}
+}
+@media (prefers-reduced-motion:reduce){
+  .step .n{transition:none}
+}
 
 /* --- tarjetas de plan: elevación al pasar el cursor ---------------------- */
 .plan{transition:border-color .34s var(--ease),transform .42s var(--ease)}
