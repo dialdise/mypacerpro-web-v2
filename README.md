@@ -119,6 +119,7 @@ para lo que depende del scroll e `IntersectionObserver` para lo que ocurre una v
 | Precios | Cuentan desde cero al aparecer |
 | Triatlón | Las tres celdas se ensamblan desde su lado y los `+` aparecen después |
 | Coaches | Formación completa plegada en `<details>`; funciona sin JS |
+| Asistente | Orbe iridiscente en CSS puro: núcleo oscuro, cáusticas enmascaradas a un anillo y pliegue que barre |
 | Botones | Relleno lima que barre de abajo arriba; en escritorio el contenido se imanta al cursor |
 | Nav | Se esconde al bajar y vuelve al subir |
 | Grano | Textura fija al 3.8% para quitar el plano digital |
@@ -127,9 +128,24 @@ Solo se animan `transform` y `opacity`: nada toca el layout. La marquesina se de
 sale de pantalla o la pestaña no está visible. Con `prefers-reduced-motion` todo queda estático
 y la barra de ritmo desaparece.
 
+## Asistente
+
+Orbe flotante que abre un chat. **No usa ningún modelo de lenguaje**: el sitio es
+estático y público, así que una clave de API quedaría a la vista en el código fuente.
+Responde desde una base de conocimiento con los datos confirmados de la web —precios,
+horarios, lugares, modalidades, coaches, cómo funciona— y lo que no está ahí lo deriva
+a WhatsApp diciendo explícitamente que no lo tiene confirmado.
+
+Por diseño **no puede inventar** un precio ni un horario, que es la regla de todo el
+proyecto. Cuando se actualice un dato en la web hay que actualizarlo también en
+`assets/bot.js`.
+
+El orbe está recreado en CSS, no es el video de referencia: pesa cero, toma el lima de
+marca y se detiene con `prefers-reduced-motion`.
+
 ## Rendimiento
 
-- Sin librerías. `app.js` son 212 líneas, un solo bucle rAF.
+- Sin librerías. `app.js` son 212 líneas (un solo bucle rAF) y `bot.js` 259.
 - Fuentes autoalojadas, solo subconjunto latino, con `preload` de las dos críticas.
 - Foto del hero con `fetchpriority="high"`; el resto en `loading="lazy"`.
 - Reveal por `IntersectionObserver`, que se desconecta tras la primera aparición.
